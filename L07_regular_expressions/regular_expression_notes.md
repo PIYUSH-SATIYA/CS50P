@@ -38,4 +38,15 @@ The parenthesis are used to group things, for example set of top level domains c
 These are some standard configuration which will be applied to our string.  
 This is the third argument passed to the `re.search()` method.
 
--   e.g. The re.IGNORECASE ignores the case of our string as the name suggests.
+-   e.g. The `re.IGNORECASE` ignores the case of our string as the name suggests.
+
+# The return value of the re.search method
+
+The re.search() method returns the groups if made in the regex, and can be accessed via the `re.group()` method, in the () we give 1 to access the first group and so on.
+
+> out of the box:
+> := the walrus operator, is assigns as well as asks a boolean question
+
+# re.sub
+
+It finds for some pattern and replaces it with some desired pattern, just a fancy version of the `replace()` method
