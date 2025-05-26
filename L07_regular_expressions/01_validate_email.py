@@ -11,8 +11,20 @@ email = input("what's your email address: ").strip()
 
 # we could have written more like this also
 
-if re.search("^.+[^@]+@[^@]+\\.com$", email): # this means that only one @ sign are allowed, all char are allowed before and after the char but the @ (one or more occurences).  
-    print("valid")
+# Another approach
+
+# if re.search("^.+[^@]+@[^@]+\\.com$", email): # this means that only one @ sign are allowed, all char are allowed before and after the char but the @ (one or more occurences).  
+#     print("valid")
+
+# else:
+#     print("Invalid")
+
+# Another approach
+
+
+# stands for raw string which is necessary for using some escape sequence characters using `\` zxz
+if re.search(r"^\w+@\w+\.(com|ac.in|org)$", email, re.IGNORECASE): # this means that only one @ sign are allowed, all char are allowed before and after the char but the @ (one or more occurences).  
+    print("valid") 
 
 else:
     print("Invalid")
