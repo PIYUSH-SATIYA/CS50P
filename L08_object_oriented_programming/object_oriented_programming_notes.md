@@ -42,3 +42,104 @@ To print something as a str in when our object is tried to print directly as a w
 -   It takes only one argument that is the self variable.
 
 We can define our custom methods also in our classes, which can be used by any of the instances of the class.
+
+# Getteres, Setters and Properties
+
+These are the concepts of OOP to encapsulate the attributes of an object and make them protected from directly accessible and modifiable without any validation.
+
+Actually the getters and setters are just functions in python with some specialities, and with function we can encapsulate the attributes for different purposes and define some validating conditions there to make code, readable, reusable and future-proof.
+
+## Getter
+
+It is having the same name as the attribute, whose value we want to get.  
+It takes only one argument and that is self.
+
+we put the keyword `@property`
+above the definition of the getter to set it as a getter in pythonic way
+
+## Setter
+
+It is also having the same name as the attribute, whose value we want to set.  
+It takes two argument and that is self and the value which we want to assign to the attribute.
+
+we put the keyword `@nameOfAttribute.setter`
+above the definition of the getter to set it as a setter in pythonic way.
+
+Conventionally and to save the interpreter from being confused, we put `_` before the name of the attribute wherever we are using it internally, except in the `__init__` method.
+
+The name of the getter and setter are kept same as the name of the attribute so that whenever we want to get or set the value of the attrubute, we make it pass through the getter an setter.  
+and we do not put an `_` before the name of the attribute in the init method because when initialising the obeject we still want to go it through the setter, and the validations in it.
+
+> In python the keyword prefixed with @ are called decorators, which are just another function that makes some other functions just behave differently.
+
+### The crux of all these
+
+In python, there is no built in mechanism to define some variable to be private and some others public.  
+It is just based on convention that if a variabl name starts with an underscore (or double underscore for more emphsizement) it is meant to be private and please just don't touch it.
+
+-   but there is nothign stopping us from doing that.
+
+# Types and classes
+
+In python everything is just a class and its instances,
+
+We can confirm it by the `type()` method in which we give integers, or strings or lists or anything and all of them just comes out to be a class.
+
+It just feels like you will use classes and object from now onwards, but in python you always have been.
+
+# Class variables and Class methods
+
+We ideally use classes when we want to instantiate some real world entity like integer, or str, or somethings related to students.
+
+Often in that case we come accross a requirement that some variable and methods need not to be separately initialised for all the instances of the class, and there comes the class methods and class variables.
+
+These are variables and methods define once in the class and there will be only one copy of it shared among all the instances(objects) of the class.
+
+### How to define them
+
+The class methods and class variables does not require any constructor, hence they don not require access to the self context.
+
+Those are written under the `@classmethod` decorator (only for class methods)
+
+so in the method where we have to pass the self argument, we pass the `cls` argument which passes the context of the whole class.
+
+Then we do not need to instantiate the class to use the method.  
+we can use it with `Classname.method(arguments)`
+
+> Ideally classes should be put in its separate file, or atleast define at the top of the file.
+
+# Inheritance
+
+There may be some properties attributes overlapping between the class bacause they might fall under same parent.
+
+For that we can leverage the concept of inheritance to make the flow of the code clear.
+
+To specify the parent class of some class, we write the oarent name in paranthesis after the child class name like:
+
+-   class Childclass(Parent)
+
+To use the init methods of the parent class we use the syntax like this:
+
+-   super().\_\_init\_\_(name)
+
+The method super() just specifies that take this from its parent and, in the parenthesis after the \_\_init\_\_ the name of the attribute which is to be used from the parent is written
+
+# Operator Overloading in python
+
+Operator overloading allows user-defined classes to redefine the behavior of Python's built-in operators (`+`, `-`, `*`, etc.) when used with objects of user defined classes objects.
+
+There are perdefined dunder methods for conventional operators for example:
+
+| Operator | Magic Method               |
+| -------- | -------------------------- |
+| `+`      | `__add__(self, other)`     |
+| `-`      | `__sub__(self, other)`     |
+| `*`      | `__mul__(self, other)`     |
+| `/`      | `__truediv__(self, other)` |
+| `==`     | `__eq__(self, other)`      |
+| `<`      | `__lt__(self, other)`      |
+| `>`      | `__gt__(self, other)`      |
+
+the two argums passed self and other, they will act as operands for the new operator, and the result will be returned from that method
+
+-   e.g. the `+` operator add only integer and concatenates strings, but if we have to add the vectors which has two components, we can not add them directly, but we can modify the `__add__` method to add them appropiately and return in appropriate format also.
