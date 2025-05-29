@@ -1,3 +1,5 @@
+Object Oriented Programming is just another way of solving the same kind of problem, a way to encapsulate and to represent real world entities in code.
+
 # A Tuple
 
 It is very similar to a list, just the difference is that a tuple is immutable (the values can't be changed).
@@ -143,3 +145,7 @@ There are perdefined dunder methods for conventional operators for example:
 the two argums passed self and other, they will act as operands for the new operator, and the result will be returned from that method
 
 -   e.g. the `+` operator add only integer and concatenates strings, but if we have to add the vectors which has two components, we can not add them directly, but we can modify the `__add__` method to add them appropiately and return in appropriate format also.
+
+# just off topic but necessary:
+
+> When we write or pass just the name of the function (means without parenthesis), we are passing just the reference to it, may be handled by some other function or in some other way, and when we write it with parenthesis, we are actually calling it.
